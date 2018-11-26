@@ -3,7 +3,7 @@ let Fullpage = new fullpage('#fullpage', {
 	//options here
     //autoScrolling:true,
     scrollingSpeed: 1000,
-    scrollHorizontally: true,
+    scrollHorizontally: false,
     licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
     
     //scroll index positioning
@@ -27,11 +27,15 @@ let Fullpage = new fullpage('#fullpage', {
                     texts[i].style.left = '0'
                 },i*150 );
             }
+            let birds = document.querySelectorAll('.cover-wrapper img');
+            for(let i=15; i<birds.length; i++){
+                birds[i].style.zIndex = 7;
+            }
+            
            //console.log('0 down')
         }
 
         if(origin.index==1 && direction == 'up'){
-           
             for(let i=0; i<texts.length; i++){
                 setTimeout(()=>{
                     texts[i].style.left = '-100%'
@@ -41,16 +45,156 @@ let Fullpage = new fullpage('#fullpage', {
                 road.style.zIndex = 8;
                 waves[10].style.zIndex = 9;
                 whiteOpaque.style.opacity = '0';
+                let birds = document.querySelectorAll('.cover-wrapper img');
+                for(let i=15; i<birds.length; i++){
+                    birds[i].style.zIndex = 9;
+                }
             }, 1000);
         }
         if(origin.index == 1 && direction == 'down'){
+            //console.log('1 down')
             static[0].style.top = '-100%';
-            static[1].style.top = '0'
-        }
+            static[1].style.top = '0';
+            let smallTruck = document.querySelector('#small-truck');
+            let title = document.querySelector('.title');
+            let text = document.querySelectorAll('.scene1 p');
+            let sceneRoad = document.querySelector('.scene1-road');
+            setTimeout(()=>{
+                for(let i=0; i<text.length; i++){
+                    text[i].style.opacity = '1'
+                }
+                title.style.opacity = '1'
+            }, 1000);
+            setTimeout(()=>{
+                smallTruck.style.transform = 'translateX(33%) translateY(33%)'
+            }, 1500);
 
+            setTimeout(()=>{
+                sceneRoad.style.left = '-100%';
+            }, 3000)
+           
+           
+            fullpage_api.setAllowScrolling(false);
+            setTimeout(()=>{
+                fullpage_api.setAllowScrolling(true);
+            }, 3600)
+        }
         if(origin.index == 2 && direction == 'up'){
+            console.log('2 up')
             static[0].style.top = '0%';
             static[1].style.top = '100%'
+            let smallTruck = document.querySelector('#small-truck');
+            setTimeout(()=>{
+                smallTruck.style.transform = 'translateX(0%) translateY(0%)'
+            }, 150);
+
+            let title = document.querySelector('.title');
+            let text = document.querySelectorAll('.scene1 p');
+            let sceneRoad = document.querySelector('.scene1-road');
+            setTimeout(()=>{
+                for(let i=0; i<text.length; i++){
+                    text[i].style.opacity = '0'
+                }
+                title.style.opacity = '0'
+            }, 100);
+
+            setTimeout(()=>{
+                sceneRoad.style.left = '50%';
+            }, 500)
+           
+        }
+        if(origin.index == 2 && direction == 'down'){
+            //console.log('2 down')
+            let longRoad = document.querySelector('.long-road');
+            let text = document.querySelectorAll('.scene1 p');
+            let bigTruck = document.querySelector('#big-truck')
+            bigTruck.style.transition = 'left 7s ease'
+            longRoad.style.opacity = '1';
+            longRoad.style.transition = 'opacity 500ms ease'
+            let smallTruck = document.querySelector('#small-truck');
+            setTimeout(()=>{
+                smallTruck.style.transform = 'translateX(0%) translateY(0%)'
+            }, 150);
+            for(let i=0; i<text.length; i++){
+                text[i].style.opacity = '0'
+            }
+            setTimeout(()=>{
+                for(let i=0; i<text.length; i++){
+                    text[i].style.opacity = '0'
+                }
+                //title.style.opacity = '0'
+            }, 100);
+
+            setTimeout(()=>{
+               // sceneRoad.style.left = '50%';
+            }, 500);
+            //show big truck, and set the timeout to make fullpage true again
+            fullpage_api.setAllowScrolling(false);
+            
+            setTimeout(()=>{
+                bigTruck.style.left = '100%'
+                //console.log('move the truck')e
+            }, 1000);
+
+            setTimeout(()=>{
+                fullpage_api.setAllowScrolling(true);
+            }, 8000);
+            let sceneRoad = document.querySelector('.scene1-road');
+            sceneRoad.style.opacity = '0'
+
+        }
+
+        if(origin.index == 3 && direction == 'up'){
+            let smallTruck = document.querySelector('#small-truck');
+            let title = document.querySelector('.title');
+            let text = document.querySelectorAll('.scene1 p');
+            let sceneRoad = document.querySelector('.scene1-road');
+            let longRoad = document.querySelector('.long-road');
+            // let text = document.querySelectorAll('.scene1 p');
+            longRoad.style.opacity = '0';
+            let bigTruck = document.querySelector('#big-truck')
+            bigTruck.style.transition = 'none'
+            longRoad.style.transition = 'none'
+            bigTruck.style.left = '0'
+           
+            for(let i=0; i<text.length; i++){
+                text[i].style.opacity = '1'
+            }
+            title.style.opacity = '1'
+        
+        
+            smallTruck.style.transform = 'translateX(0%) translateY(0%)'
+        
+            sceneRoad.style.left = '50%';
+           
+           
+            sceneRoad.style.opacity = '1'
+           // fullpage_api.setAllowScrolling(false);
+            // setTimeout(()=>{
+            //     fullpage_api.setAllowScrolling(true);
+            // }, 3600)
+           
+            // for(let i=0; i<text.length; i++){
+            //     text[i].style.opacity = '1'
+            // }
+            // let smallTruck = document.querySelector('#small-truck');
+            // setTimeout(()=>{
+            //     smallTruck.style.transform = 'translateX(0%) translateY(0%)'
+            // }, 150);
+
+            // let title = document.querySelector('.title');
+          
+            // let sceneRoad = document.querySelector('.scene1-road');
+            // setTimeout(()=>{
+            //     for(let i=0; i<text.length; i++){
+            //         text[i].style.opacity = '1'
+            //     }
+            //     title.style.opacity = '1'
+            // }, 100);
+
+            // setTimeout(()=>{
+            //     sceneRoad.style.left = '50%';
+            // }, 500)
         }
         
     }
@@ -180,9 +324,10 @@ function AnimateSmoke(){
 
 function MoveBirds(){
     let birds = document.querySelectorAll('.cover-wrapper img');
-    setTimeout(()=>{
+  
         for(let i=13; i<19; i++){
             birds[i].style.opacity = 1;
+            birds[i].style.zIndex = 9;
         }
 
         function moving(e){
@@ -211,7 +356,7 @@ function MoveBirds(){
         let positionX = 0;
         positionY = 0;
         window.addEventListener('mousemove', moving)
-    },4500)
+   
 }
 
 window.addEventListener('load', ()=>{

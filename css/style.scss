@@ -13,6 +13,8 @@
 body{
     .static{
         position: fixed;
+        width: 100%;
+        height: 100%;
         //bottom: 0;
         transition: all 1s ease;
     }
@@ -222,7 +224,7 @@ body{
             left: 30%;
             background: #B6DBA7;
             transition: all 2s ease;
-            z-index: 99;
+            z-index: 8;
         }
         .white-opaque{
             width: 100%;
@@ -246,18 +248,83 @@ body{
             }
         }
     }
-
-    .scene1{
-        width: 100%;
-        height: 100%;
-        background: rgb(117, 38, 190);
-        top: 100%;
-    }
-
     #fullpage{
         z-index: 99;
         font-size: 30px;
         color: #fff;
         text-shadow: 3px 3px 3px black;
     }
+
+    .scene1{
+        width: 100%;
+        height: 100%;
+        background: #D6E9C5;
+        top: 100%;
+        .title{
+            width: 37%;
+            margin: 0 auto;
+            margin-top: 30px;
+            margin-bottom: 25px;
+            opacity: 0;
+            transition: all 1s ease;
+            img{
+                width: 100%;
+            }
+        }
+        p{
+            text-align: center;
+            font-family: 'Roboto Condensed', sans-serif;
+            line-height: 1.4;
+            font-size: 18px;
+            transition: all 1s ease;
+            opacity: 0;
+        }
+        .scene1-road{
+            width: 50%;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%); 
+            height: 90%;
+            overflow: hidden;
+            transition: all 1s ease;
+            img{
+                width: 100%;
+                height: auto;
+                margin: 0;
+                position: absolute;
+                bottom: 0;
+                transition: all 2000ms ease;
+            }
+        }
+
+        .long-road{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top:0;
+            opacity: 0;
+            transition: opacity 500ms ease;
+            img{
+                width: 100%;
+                height: auto;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                &:nth-child(2){
+                    width: 18%;
+                    top: 44%;
+                    left: 0;
+                    transition: left 7s ease;
+                }
+                &:nth-child(3){
+                    width: 13%;
+                    top: 25%;
+                    left: 24%;
+                }
+            }
+        }
+    }
+
+   
 }
