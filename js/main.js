@@ -29,7 +29,7 @@ let Fullpage = new fullpage('#fullpage', {
             }
             let birds = document.querySelectorAll('.cover-wrapper img');
             for(let i=15; i<birds.length; i++){
-                birds[i].style.zIndex = 7;
+                birds[i].style.zIndex = 4;
             }
             
            //console.log('0 down')
@@ -106,8 +106,22 @@ let Fullpage = new fullpage('#fullpage', {
         if(origin.index == 2 && direction == 'down'){
             //console.log('2 down')
             let longRoad = document.querySelector('.long-road');
-            let text = document.querySelectorAll('.scene1 p');
+            let text = document.querySelectorAll('.scene1 > p');
             let bigTruck = document.querySelector('#big-truck')
+            let title = document.querySelector('.title');
+            let longRoadImg = document.querySelectorAll('.long-road img');
+            let longRoadText = document.querySelector('.long-road-text');
+            setTimeout(()=>{
+                longRoadText.style.opacity = '1'
+            },6000)
+            for(let i = 2; i<longRoadImg.length; i++){
+                //console.log(i)
+                setTimeout(()=>{
+                    longRoadImg[i].style.opacity = '1'
+                }, (i-1)*800)
+            }
+
+            title.style.opacity = '0'
             bigTruck.style.transition = 'left 7s ease'
             longRoad.style.opacity = '1';
             longRoad.style.transition = 'opacity 500ms ease'
@@ -150,7 +164,7 @@ let Fullpage = new fullpage('#fullpage', {
             let text = document.querySelectorAll('.scene1 p');
             let sceneRoad = document.querySelector('.scene1-road');
             let longRoad = document.querySelector('.long-road');
-            // let text = document.querySelectorAll('.scene1 p');
+           
             longRoad.style.opacity = '0';
             let bigTruck = document.querySelector('#big-truck')
             bigTruck.style.transition = 'none'
@@ -161,40 +175,143 @@ let Fullpage = new fullpage('#fullpage', {
                 text[i].style.opacity = '1'
             }
             title.style.opacity = '1'
-        
-        
             smallTruck.style.transform = 'translateX(0%) translateY(0%)'
-        
             sceneRoad.style.left = '50%';
-           
-           
             sceneRoad.style.opacity = '1'
-           // fullpage_api.setAllowScrolling(false);
-            // setTimeout(()=>{
-            //     fullpage_api.setAllowScrolling(true);
-            // }, 3600)
+            let longRoadImg = document.querySelectorAll('.long-road img');
+            let longRoadText = document.querySelector('.long-road-text');
+            longRoadText.style.opacity = '0'
+            for(let i = 2; i<longRoadImg.length; i++){
+                longRoadImg[i].style.opacity = '0'
+            }
+        }
+
+        if(origin.index==3 && direction =='down'){
+            let scene1 = document.querySelector('.scene1');
+            let scene2 = document.querySelector('.scene2');
+            let bigTruck = document.querySelector('#big-truck')
+            let longRoadImg = document.querySelectorAll('.long-road img');
+            let longRoadText = document.querySelector('.long-road-text');
+            
+            setTimeout(()=>{
+                bigTruck.style.transition = 'none'
+                bigTruck.style.left = '0'
+                longRoadText.style.opacity = '0'
+                for(let i = 2; i<longRoadImg.length; i++){
+                    longRoadImg[i].style.opacity = '0'
+                }
+            },1000);
+            scene1.style.left = '-100%'
+            scene2.style.left = '0%'
+
+            let scene2img = document.querySelectorAll('.scene2 img');
+            let textBottom= document.querySelector('.text-bottom');
+            setTimeout(()=>{
+                for(let i=1; i<scene2img.length; i++){
+                    scene2img[i].style.opacity = '1'
+                }
+            }, 1500);
+            setTimeout(()=>{
+                scene2img[2].style.width = '20%'            
+            }, 1700)
+
+            setTimeout(()=>{
+                textBottom.style.opacity = '1';
+                fullpage_api.setAllowScrolling(true);
+            }, 2500)
+
+            fullpage_api.setAllowScrolling(false);
+
+        }
+        if(origin.index==4 && direction=='up'){
+            let scene1 = document.querySelector('.scene1');
+            let scene2 = document.querySelector('.scene2');
+            let bigTruck = document.querySelector('#big-truck');
+            let longRoadImg = document.querySelectorAll('.long-road img');
+            let longRoadText = document.querySelector('.long-road-text');
+
+            scene1.style.left = '0%'
+            scene2.style.left = '100%';
+            setTimeout(()=>{
+                bigTruck.style.transition = 'all 7s ease'
+                bigTruck.style.left = '100%'
+                setTimeout(()=>{
+                    longRoadText.style.opacity = '1'
+                },6000)
+                for(let i = 2; i<longRoadImg.length; i++){
+                    console.log(i)
+                    setTimeout(()=>{
+                        longRoadImg[i].style.opacity = '1'
+                    }, (i-1)*800)
+                }
+            },1000);
+            fullpage_api.setAllowScrolling(false);
+            setTimeout(()=>{
+                fullpage_api.setAllowScrolling(true);
+            }, 8000);
+            let scene2img = document.querySelectorAll('.scene2 img');
+            let textBottom= document.querySelector('.text-bottom');
+            setTimeout(()=>{
+                for(let i=1; i<scene2img.length; i++){
+                    scene2img[i].style.opacity = '0'
+                }
+            }, 1500);
+            setTimeout(()=>{
+                scene2img[2].style.width = '0%' 
+                textBottom.style.opacity = '0';           
+            }, 1700)
+        }
+        if(origin.index == 4 && direction == 'down'){
+            let scene2img = document.querySelectorAll('.scene2 img');
+            let textBottom= document.querySelector('.text-bottom');
+            setTimeout(()=>{
+                for(let i=1; i<scene2img.length; i++){
+                    scene2img[i].style.opacity = '0'
+                }
+            }, 1500);
+            setTimeout(()=>{
+                scene2img[2].style.width = '0%' 
+                textBottom.style.opacity = '0';           
+            }, 1700);
+
+            let scene2 = document.querySelector('.scene2');
+            let scene3 = document.querySelector('.scene3');
+
+            scene2.style.top = '-100%'
+            scene3.style.top = '0';
+
+            let modal = document.querySelector('.modal');
+            setTimeout(()=>{
+                modal.style.opacity = '1'
+                modal.style.transform = 'scale(1)'
+            }, 1000)
            
-            // for(let i=0; i<text.length; i++){
-            //     text[i].style.opacity = '1'
-            // }
-            // let smallTruck = document.querySelector('#small-truck');
-            // setTimeout(()=>{
-            //     smallTruck.style.transform = 'translateX(0%) translateY(0%)'
-            // }, 150);
 
-            // let title = document.querySelector('.title');
-          
-            // let sceneRoad = document.querySelector('.scene1-road');
-            // setTimeout(()=>{
-            //     for(let i=0; i<text.length; i++){
-            //         text[i].style.opacity = '1'
-            //     }
-            //     title.style.opacity = '1'
-            // }, 100);
 
-            // setTimeout(()=>{
-            //     sceneRoad.style.left = '50%';
-            // }, 500)
+        }
+        if(origin.index==5 && direction=='up'){
+            let scene2img = document.querySelectorAll('.scene2 img');
+            let textBottom= document.querySelector('.text-bottom');
+            setTimeout(()=>{
+                for(let i=1; i<scene2img.length; i++){
+                    scene2img[i].style.opacity = '1'
+                }
+            }, 1500);
+            setTimeout(()=>{
+                scene2img[2].style.width = '20%' 
+                textBottom.style.opacity = '1';           
+            }, 1700);
+
+            let scene2 = document.querySelector('.scene2');
+            let scene3 = document.querySelector('.scene3');
+
+            scene2.style.top = '0%'
+            scene3.style.top = '100%'
+            let modal = document.querySelector('.modal');
+            setTimeout(()=>{
+                modal.style.opacity = '0'
+                modal.style.transform = 'scale(0)'
+            }, 1000)
         }
         
     }
