@@ -313,6 +313,197 @@ let Fullpage = new fullpage('#fullpage', {
                 modal.style.transform = 'scale(0)'
             }, 1000)
         }
+
+        if(origin.index==5 && direction == 'down'){
+
+            let scene4 = document.querySelector('.scene4');
+            let scene3 = document.querySelector('.scene3');
+
+            scene4.style.top = '0%'
+            scene3.style.top = '-100%'
+            let modal = document.querySelector('.modal');
+            setTimeout(()=>{
+                modal.style.opacity = '0'
+                modal.style.transform = 'scale(0)'
+            }, 1000);
+
+            let s4p = document.querySelector('.s4 p');
+            let oilwraper = document.querySelector('.oil-wraper');
+            let graphwraper = document.querySelector('.graph-wraper');
+            let oilImg = document.querySelectorAll('.oil-wraper img');
+          
+            fullpage_api.setAllowScrolling(false)
+            setTimeout(()=>{
+                s4p.style.opacity = '1'
+            }, 1100);
+            setTimeout(()=>{
+                oilwraper.style.opacity = '1'
+                graphwraper.style.opacity = '1'
+               
+            }, 2000);
+
+            setTimeout(()=>{
+                oilImg[0].style.marginTop = '-32px'
+                oilImg[2].style.marginTop = '72px'
+                fullpage_api.setAllowScrolling(true)
+            }, 2500)
+
+        }
+
+        if(origin.index==6 && direction == 'up'){
+            let scene4 = document.querySelector('.scene4');
+            let scene3 = document.querySelector('.scene3');
+
+            scene4.style.top = '100%'
+            scene3.style.top = '0%';
+            let modal = document.querySelector('.modal');
+            setTimeout(()=>{
+                modal.style.opacity = '1'
+                modal.style.transform = 'scale(1)'
+            }, 1000);
+            let oilwraper = document.querySelector('.oil-wraper');
+            let graphwraper = document.querySelector('.graph-wraper');
+            let oilImg = document.querySelectorAll('.oil-wraper img');
+            let s4p = document.querySelector('.s4 p')
+            setTimeout(()=>{
+                s4p.style.opacity = '0'
+                oilwraper.style.opacity = '0'
+                graphwraper.style.opacity = '0'
+                oilImg[0].style.marginTop = '0'
+                oilImg[2].style.marginTop = '0'
+            }, 1100)
+        }
+
+        if(origin.index == 6 && direction == 'down'){
+            let oilwraper = document.querySelector('.oil-wraper');
+            let graphwraper = document.querySelector('.graph-wraper');
+            let oilImg = document.querySelectorAll('.oil-wraper img');
+            let s4p = document.querySelector('.s4 p')
+            setTimeout(()=>{
+                s4p.style.opacity = '0'
+                oilwraper.style.opacity = '0'
+                graphwraper.style.opacity = '0'
+                oilImg[0].style.marginTop = '0'
+                oilImg[2].style.marginTop = '0'
+            }, 1100);
+
+            let oilwraper5 = document.querySelector('.s5 .oil-wraper');
+            let graphwraper5 = document.querySelector('.s5 .graph-wraper');
+            let oilImg5 = document.querySelectorAll('.s5 .oil-wraper img');
+            let s5p = document.querySelector('.s5 p');
+
+            fullpage_api.setAllowScrolling(false)
+            setTimeout(()=>{
+                s5p.style.opacity = '1'
+            }, 1100);
+            setTimeout(()=>{
+                oilwraper5.style.opacity = '1'
+                graphwraper5.style.opacity = '1'
+               
+            }, 2000);
+
+            setTimeout(()=>{
+                oilImg5[0].style.marginTop = '-32px'
+                oilImg5[2].style.marginTop = '72px'
+                fullpage_api.setAllowScrolling(true)
+            }, 2500)
+
+        }
+
+        if(origin.index == 7 && direction == 'up'){
+            let s4p = document.querySelector('.s4 p');
+            let oilwraper = document.querySelector('.oil-wraper');
+            let graphwraper = document.querySelector('.graph-wraper');
+            let oilImg = document.querySelectorAll('.oil-wraper img');
+          
+            fullpage_api.setAllowScrolling(false)
+            setTimeout(()=>{
+                s4p.style.opacity = '1'
+            }, 1100);
+            setTimeout(()=>{
+                oilwraper.style.opacity = '1'
+                graphwraper.style.opacity = '1'
+               
+            }, 2000);
+
+            setTimeout(()=>{
+                oilImg[0].style.marginTop = '-32px'
+                oilImg[2].style.marginTop = '72px'
+                fullpage_api.setAllowScrolling(true)
+            }, 2500);
+
+            let oilwraper5 = document.querySelector('.s5 .oil-wraper');
+            let graphwraper5 = document.querySelector('.s5 .graph-wraper');
+            let oilImg5 = document.querySelectorAll('.s5 .oil-wraper img');
+            let s5p = document.querySelector('.s5 p');
+
+            fullpage_api.setAllowScrolling(false)
+            setTimeout(()=>{
+                s5p.style.opacity = '0'
+            }, 1100);
+            setTimeout(()=>{
+                oilwraper5.style.opacity = '0'
+                graphwraper5.style.opacity = '0'
+               
+            }, 2000);
+
+            setTimeout(()=>{
+                oilImg5[0].style.marginTop = '0'
+                oilImg5[2].style.marginTop = '0'
+                fullpage_api.setAllowScrolling(true)
+            }, 2500)
+        }
+
+        if(origin.index == 7 && direction=='down'){
+            let oilwraper5 = document.querySelector('.s5 .oil-wraper');
+            let graphwraper5 = document.querySelector('.s5 .graph-wraper');
+            let oilImg5 = document.querySelectorAll('.s5 .oil-wraper img');
+            let s5p = document.querySelector('.s5 p');
+
+            setTimeout(()=>{
+                s5p.style.opacity = '0'
+                oilwraper5.style.opacity = '0'
+                graphwraper5.style.opacity = '0'
+                oilImg5[0].style.marginTop = '0'
+                oilImg5[2].style.marginTop = '0'
+            }, 1000);
+
+            let s6p = document.querySelector('.s6 p');
+            let s6bawah = document.querySelector('#bawah6')
+            setTimeout(()=>{
+                s6p.style.opacity = '1'
+                s6bawah.style.opacity = '1'
+            }, 1100);
+
+        }
+
+        if(origin.index == 8 && direction == 'up'){
+            let oilwraper5 = document.querySelector('.s5 .oil-wraper');
+            let graphwraper5 = document.querySelector('.s5 .graph-wraper');
+            let oilImg5 = document.querySelectorAll('.s5 .oil-wraper img');
+            let s5p = document.querySelector('.s5 p');
+
+            fullpage_api.setAllowScrolling(false)
+            setTimeout(()=>{
+                s5p.style.opacity = '1'
+            }, 1100);
+            setTimeout(()=>{
+                oilwraper5.style.opacity = '1'
+                graphwraper5.style.opacity = '1'
+            }, 2000);
+
+            setTimeout(()=>{
+                oilImg5[0].style.marginTop = '-32px'
+                oilImg5[2].style.marginTop = '72px'
+                fullpage_api.setAllowScrolling(true)
+            }, 2500);
+
+
+            let s6p = document.querySelector('.s6 p');
+            setTimeout(()=>{
+                s6p.style.opacity = '0'
+            }, 1000);
+        }
         
     }
 });
