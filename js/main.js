@@ -18,40 +18,24 @@ let Fullpage = new fullpage('#fullpage', {
         let road = document.querySelector('.road-wrapper');
         let static = document.querySelectorAll('.static')
 
-        if(origin.index==0 && direction == 'down'){
-            road.style.zIndex = 6;
-            waves[10].style.zIndex = 7;
-            whiteOpaque.style.opacity = '1';
-            for(let i=0; i<texts.length; i++){
-                setTimeout(()=>{
-                    texts[i].style.left = '0'
-                },i*150 );
-            }
-            let birds = document.querySelectorAll('.cover-wrapper img');
-            for(let i=15; i<birds.length; i++){
-                birds[i].style.zIndex = 4;
-            }
-            
-           //console.log('0 down')
-        }
 
-        if(origin.index==1 && direction == 'up'){
-            for(let i=0; i<texts.length; i++){
-                setTimeout(()=>{
-                    texts[i].style.left = '-100%'
-                },i*300 )
-            }
-            setTimeout(()=>{
-                road.style.zIndex = 8;
-                waves[10].style.zIndex = 9;
-                whiteOpaque.style.opacity = '0';
-                let birds = document.querySelectorAll('.cover-wrapper img');
-                for(let i=15; i<birds.length; i++){
-                    birds[i].style.zIndex = 9;
-                }
-            }, 1000);
-        }
-        if(origin.index == 1 && direction == 'down'){
+        // if(origin.index==1 && direction == 'up'){
+        //     for(let i=0; i<texts.length; i++){
+        //         setTimeout(()=>{
+        //             texts[i].style.left = '-100%'
+        //         },i*300 )
+        //     }
+        //     setTimeout(()=>{
+        //         road.style.zIndex = 8;
+        //         waves[10].style.zIndex = 9;
+        //         whiteOpaque.style.opacity = '0';
+        //         let birds = document.querySelectorAll('.cover-wrapper img');
+        //         for(let i=15; i<birds.length; i++){
+        //             birds[i].style.zIndex = 9;
+        //         }
+        //     }, 1000);
+        // }
+        if(origin.index == 0 && direction == 'down'){
             //console.log('1 down')
             static[0].style.top = '-100%';
             static[1].style.top = '0';
@@ -79,7 +63,7 @@ let Fullpage = new fullpage('#fullpage', {
                 fullpage_api.setAllowScrolling(true);
             }, 3600)
         }
-        if(origin.index == 2 && direction == 'up'){
+        if(origin.index == 1 && direction == 'up'){
             console.log('2 up')
             static[0].style.top = '0%';
             static[1].style.top = '100%'
@@ -103,7 +87,7 @@ let Fullpage = new fullpage('#fullpage', {
             }, 500)
            
         }
-        if(origin.index == 2 && direction == 'down'){
+        if(origin.index == 1 && direction == 'down'){
             //console.log('2 down')
             let longRoad = document.querySelector('.long-road');
             let text = document.querySelectorAll('.scene1 > p');
@@ -158,7 +142,7 @@ let Fullpage = new fullpage('#fullpage', {
 
         }
 
-        if(origin.index == 3 && direction == 'up'){
+        if(origin.index == 2 && direction == 'up'){
             let smallTruck = document.querySelector('#small-truck');
             let title = document.querySelector('.title');
             let text = document.querySelectorAll('.scene1 p');
@@ -186,7 +170,7 @@ let Fullpage = new fullpage('#fullpage', {
             }
         }
 
-        if(origin.index==3 && direction =='down'){
+        if(origin.index==2 && direction =='down'){
             let scene1 = document.querySelector('.scene1');
             let scene2 = document.querySelector('.scene2');
             let bigTruck = document.querySelector('#big-truck')
@@ -223,7 +207,7 @@ let Fullpage = new fullpage('#fullpage', {
             fullpage_api.setAllowScrolling(false);
 
         }
-        if(origin.index==4 && direction=='up'){
+        if(origin.index==3 && direction=='up'){
             let scene1 = document.querySelector('.scene1');
             let scene2 = document.querySelector('.scene2');
             let bigTruck = document.querySelector('#big-truck');
@@ -261,7 +245,7 @@ let Fullpage = new fullpage('#fullpage', {
                 textBottom.style.opacity = '0';           
             }, 1700)
         }
-        if(origin.index == 4 && direction == 'down'){
+        if(origin.index == 3 && direction == 'down'){
             let scene2img = document.querySelectorAll('.scene2 img');
             let textBottom= document.querySelector('.text-bottom');
             setTimeout(()=>{
@@ -289,7 +273,7 @@ let Fullpage = new fullpage('#fullpage', {
 
 
         }
-        if(origin.index==5 && direction=='up'){
+        if(origin.index==4 && direction=='up'){
             let scene2img = document.querySelectorAll('.scene2 img');
             let textBottom= document.querySelector('.text-bottom');
             setTimeout(()=>{
@@ -314,8 +298,8 @@ let Fullpage = new fullpage('#fullpage', {
             }, 1000)
         }
 
-        if(origin.index==5 && direction == 'down'){
-
+        if(origin.index==4 && direction == 'down'){
+            //console.log('4down')
             let scene4 = document.querySelector('.scene4');
             let scene3 = document.querySelector('.scene3');
 
@@ -328,9 +312,9 @@ let Fullpage = new fullpage('#fullpage', {
             }, 1000);
 
             let s4p = document.querySelector('.s4 p');
-            let oilwraper = document.querySelector('.oil-wraper');
-            let graphwraper = document.querySelector('.graph-wraper');
-            let oilImg = document.querySelectorAll('.oil-wraper img');
+            let oilwraper = document.querySelector('.s4 .oil-wraper');
+            let graphwraper = document.querySelector('.s4 .graph-wraper');
+            let oilImg = document.querySelectorAll('.s4 .oil-wraper img');
           
             fullpage_api.setAllowScrolling(false)
             setTimeout(()=>{
@@ -343,14 +327,14 @@ let Fullpage = new fullpage('#fullpage', {
             }, 2000);
 
             setTimeout(()=>{
-                oilImg[0].style.marginTop = '-32px'
-                oilImg[2].style.marginTop = '72px'
+                oilImg[0].style.marginTop = '-5vh'
+                oilImg[2].style.marginTop = '3vh'
                 fullpage_api.setAllowScrolling(true)
             }, 2500)
 
         }
 
-        if(origin.index==6 && direction == 'up'){
+        if(origin.index==5 && direction == 'up'){
             let scene4 = document.querySelector('.scene4');
             let scene3 = document.querySelector('.scene3');
 
@@ -374,7 +358,7 @@ let Fullpage = new fullpage('#fullpage', {
             }, 1100)
         }
 
-        if(origin.index == 6 && direction == 'down'){
+        if(origin.index == 5 && direction == 'down'){
             let oilwraper = document.querySelector('.oil-wraper');
             let graphwraper = document.querySelector('.graph-wraper');
             let oilImg = document.querySelectorAll('.oil-wraper img');
@@ -403,14 +387,14 @@ let Fullpage = new fullpage('#fullpage', {
             }, 2000);
 
             setTimeout(()=>{
-                oilImg5[0].style.marginTop = '-32px'
-                oilImg5[2].style.marginTop = '72px'
+                oilImg5[0].style.marginTop = '-5vh'
+                oilImg5[2].style.marginTop = '3vh'
                 fullpage_api.setAllowScrolling(true)
             }, 2500)
 
         }
 
-        if(origin.index == 7 && direction == 'up'){
+        if(origin.index == 6 && direction == 'up'){
             let s4p = document.querySelector('.s4 p');
             let oilwraper = document.querySelector('.oil-wraper');
             let graphwraper = document.querySelector('.graph-wraper');
@@ -427,8 +411,8 @@ let Fullpage = new fullpage('#fullpage', {
             }, 2000);
 
             setTimeout(()=>{
-                oilImg[0].style.marginTop = '-32px'
-                oilImg[2].style.marginTop = '72px'
+                oilImg[0].style.marginTop = '-5vh'
+                oilImg[2].style.marginTop = '3vh'
                 fullpage_api.setAllowScrolling(true)
             }, 2500);
 
@@ -454,7 +438,7 @@ let Fullpage = new fullpage('#fullpage', {
             }, 2500)
         }
 
-        if(origin.index == 7 && direction=='down'){
+        if(origin.index == 6 && direction=='down'){
             let oilwraper5 = document.querySelector('.s5 .oil-wraper');
             let graphwraper5 = document.querySelector('.s5 .graph-wraper');
             let oilImg5 = document.querySelectorAll('.s5 .oil-wraper img');
@@ -477,7 +461,7 @@ let Fullpage = new fullpage('#fullpage', {
 
         }
 
-        if(origin.index == 8 && direction == 'up'){
+        if(origin.index == 7 && direction == 'up'){
             let oilwraper5 = document.querySelector('.s5 .oil-wraper');
             let graphwraper5 = document.querySelector('.s5 .graph-wraper');
             let oilImg5 = document.querySelectorAll('.s5 .oil-wraper img');
@@ -630,42 +614,42 @@ function AnimateSmoke(){
     
 }
 
-function MoveBirds(){
-    let birds = document.querySelectorAll('.cover-wrapper img');
+// function MoveBirds(){
+//     let birds = document.querySelectorAll('.cover-wrapper img');
   
-        for(let i=13; i<19; i++){
-            birds[i].style.opacity = 1;
-            birds[i].style.zIndex = 9;
-        }
+//         for(let i=13; i<19; i++){
+//             birds[i].style.opacity = 1;
+//             birds[i].style.zIndex = 9;
+//         }
 
-        function moving(e){
-            for(let i=13; i<19; i++){
-                let j = birds[i].offsetLeft;
-                let k = birds[i].offsetTop;
-                if(e.clientX<positionX){
-                    //console.log('left')
-                    birds[i].style.left = `${j+1}px`;
-                }else{
-                    //console.log('right')
-                    birds[i].style.left = `${j-1}px`;
-                }
+//         function moving(e){
+//             for(let i=13; i<19; i++){
+//                 let j = birds[i].offsetLeft;
+//                 let k = birds[i].offsetTop;
+//                 if(e.clientX<positionX){
+//                     //console.log('left')
+//                     birds[i].style.left = `${j+1}px`;
+//                 }else{
+//                     //console.log('right')
+//                     birds[i].style.left = `${j-1}px`;
+//                 }
 
-                if(e.clientY<positionY){
-                    //console.log('up')
-                    birds[i].style.top = `${k+1}px`;
-                }else{
-                    //console.log('down')
-                    birds[i].style.top = `${k-1}px`;
-                }
-            }
-            positionX = e.clientX;
-            positionY = e.clientY;
-        }
-        let positionX = 0;
-        positionY = 0;
-        window.addEventListener('mousemove', moving)
+//                 if(e.clientY<positionY){
+//                     //console.log('up')
+//                     birds[i].style.top = `${k+1}px`;
+//                 }else{
+//                     //console.log('down')
+//                     birds[i].style.top = `${k-1}px`;
+//                 }
+//             }
+//             positionX = e.clientX;
+//             positionY = e.clientY;
+//         }
+//         let positionX = 0;
+//         positionY = 0;
+//         window.addEventListener('mousemove', moving)
    
-}
+// }
 
 window.addEventListener('load', ()=>{
     ShipMovement();
@@ -673,8 +657,25 @@ window.addEventListener('load', ()=>{
     RevealRoad();
     ScaleItem();
     AnimateSmoke();
-    MoveBirds();
+    //MoveBirds();
     setTimeout(()=>{
+        let cover = document.querySelector('.cover-wrapper');
+        let whiteOpaque = document.querySelector('.white-opaque');
+        let texts = document.querySelectorAll('.white-opaque p');
+        let road = document.querySelector('.road-wrapper');
+        let static = document.querySelectorAll('.static')
+        road.style.zIndex = 6;
+            waves[10].style.zIndex = 7;
+            whiteOpaque.style.opacity = '1';
+            for(let i=0; i<texts.length; i++){
+                setTimeout(()=>{
+                    texts[i].style.left = '0'
+                },i*150 );
+            }
+            let birds = document.querySelectorAll('.cover-wrapper img');
+            for(let i=15; i<birds.length; i++){
+                birds[i].style.zIndex = 4;
+            }
         fullpage_api.setAllowScrolling(true);
     },4500);
 
