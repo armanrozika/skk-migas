@@ -18,23 +18,6 @@ let Fullpage = new fullpage('#fullpage', {
         let road = document.querySelector('.road-wrapper');
         let static = document.querySelectorAll('.static')
 
-
-        // if(origin.index==1 && direction == 'up'){
-        //     for(let i=0; i<texts.length; i++){
-        //         setTimeout(()=>{
-        //             texts[i].style.left = '-100%'
-        //         },i*300 )
-        //     }
-        //     setTimeout(()=>{
-        //         road.style.zIndex = 8;
-        //         waves[10].style.zIndex = 9;
-        //         whiteOpaque.style.opacity = '0';
-        //         let birds = document.querySelectorAll('.cover-wrapper img');
-        //         for(let i=15; i<birds.length; i++){
-        //             birds[i].style.zIndex = 9;
-        //         }
-        //     }, 1000);
-        // }
         if(origin.index == 0 && direction == 'down'){
             //console.log('1 down')
             static[0].style.top = '-100%';
@@ -51,17 +34,17 @@ let Fullpage = new fullpage('#fullpage', {
             }, 1000);
             setTimeout(()=>{
                 smallTruck.style.transform = 'translateX(33%) translateY(33%)'
-            }, 1500);
+            }, 1000);
 
             setTimeout(()=>{
-                sceneRoad.style.left = '-100%';
+                //sceneRoad.style.left = '-100%';
             }, 3000)
            
            
             fullpage_api.setAllowScrolling(false);
             setTimeout(()=>{
                 fullpage_api.setAllowScrolling(true);
-            }, 3600)
+            }, 1000)
         }
         if(origin.index == 1 && direction == 'up'){
             console.log('2 up')
@@ -83,7 +66,7 @@ let Fullpage = new fullpage('#fullpage', {
             }, 100);
 
             setTimeout(()=>{
-                sceneRoad.style.left = '50%';
+                //sceneRoad.style.left = '50%';
             }, 500)
            
         }
@@ -461,6 +444,12 @@ let Fullpage = new fullpage('#fullpage', {
             let oilImg5 = document.querySelectorAll('.s5 .oil-wraper img');
             let s5p = document.querySelector('.s5 p');
 
+            let scene4 = document.querySelector('.scene4');
+            let scene6 = document.querySelector('.scene6');
+
+            scene4.style.top = '0';
+            scene6.style.top = '100%'
+
             fullpage_api.setAllowScrolling(false)
             setTimeout(()=>{
                 s5p.style.opacity = '1'
@@ -475,6 +464,20 @@ let Fullpage = new fullpage('#fullpage', {
                 oilImg5[2].style.marginTop = '100%'
                 fullpage_api.setAllowScrolling(true)
             }, 2500);
+        }
+        if(origin.index == 7 && direction == 'down'){
+            let scene4 = document.querySelector('.scene4');
+            let scene6 = document.querySelector('.scene6');
+
+            scene4.style.top = '-100%';
+            scene6.style.top = '0'
+        }
+        if(origin.index == 8 && direction == 'up'){
+            let scene4 = document.querySelector('.scene4');
+            let scene6 = document.querySelector('.scene6');
+
+            scene4.style.top = '0';
+            scene6.style.top = '100%'
         }
         
     }
@@ -602,42 +605,82 @@ function AnimateSmoke(){
     
 }
 
-// function MoveBirds(){
-//     let birds = document.querySelectorAll('.cover-wrapper img');
-  
-//         for(let i=13; i<19; i++){
-//             birds[i].style.opacity = 1;
-//             birds[i].style.zIndex = 9;
-//         }
+//stop fullpage when click modal
+function stopFullpage(){
+    let click = document.querySelectorAll('.click');
+    let h1 = document.querySelectorAll('.click h1')
+    let check = document.querySelectorAll('.check');
+    let modal = document.querySelectorAll('.modals');
+    let close = document.querySelector('.close-tkdn')
+    close.addEventListener('click', ()=>{
+        modal[0].style.visibility = 'hidden'
+        modal[0].style.opacity = '0'
+        console.log('click')
+        console.log(modal[2])
+    })
+    for(let i=0; i<click.length; i++){
+        click[i].addEventListener('click',()=>{
+            fullpage_api.setAllowScrolling(false);
+            h1[i].style.opacity = '0.4'
+            check[i].style.visibility = 'visible';
+            click[i].style.backgroundImage = 'linear-gradient(to bottom left, #750a0c, #f11f1f)'
+            console.log(modal[i])
+            modal[i].style.visibility = 'visible';
+            modal[i].style.opacity = '1';
+        });
 
-//         function moving(e){
-//             for(let i=13; i<19; i++){
-//                 let j = birds[i].offsetLeft;
-//                 let k = birds[i].offsetTop;
-//                 if(e.clientX<positionX){
-//                     //console.log('left')
-//                     birds[i].style.left = `${j+1}px`;
-//                 }else{
-//                     //console.log('right')
-//                     birds[i].style.left = `${j-1}px`;
-//                 }
+        modal[i].addEventListener('click', (e)=>{
+            if(e.target == modal[i]){
+                modal[i].style.visibility = 'hidden';
+                modal[i].style.opacity = '0';
+            }
+        })
+    }
+}
 
-//                 if(e.clientY<positionY){
-//                     //console.log('up')
-//                     birds[i].style.top = `${k+1}px`;
-//                 }else{
-//                     //console.log('down')
-//                     birds[i].style.top = `${k-1}px`;
-//                 }
-//             }
-//             positionX = e.clientX;
-//             positionY = e.clientY;
-//         }
-//         let positionX = 0;
-//         positionY = 0;
-//         window.addEventListener('mousemove', moving)
-   
-// }
+
+function scrollModal(){
+    let tkdn1 = document.querySelector('.tkdn1');
+    let tkdn2 = document.querySelector('.tkdn2');
+    let scroll = document.querySelector('.scroller');
+    let tkdn3 = document.querySelector('.tkdn3');
+    
+    function movetkdn1(e){
+        if(e.deltaY>0){
+            console.log('down');
+            tkdn1.style.left = '-100%'
+            tkdn2.style.left = '0' 
+            scroll.style.left = '30%'
+        }else{
+
+        }
+    }
+    function movetkdn2(e){
+        if(e.deltaY>0){
+            console.log('down');
+            tkdn2.style.left = '-100%'
+            tkdn3.style.left = '0' 
+            scroll.style.left = '60%'
+        }else{
+            tkdn1.style.left = '0'
+            tkdn2.style.left = '100%' 
+            scroll.style.left = '5px'
+        }
+    }
+    function movetkdn3(e){
+        if(e.deltaY>0){
+            console.log('down');
+        }else{
+            tkdn2.style.left = '0' 
+            tkdn3.style.left = '100%' 
+            scroll.style.left = '30%'
+        }
+    }
+    
+    tkdn1.addEventListener('wheel', movetkdn1)
+    tkdn2.addEventListener('wheel', movetkdn2)
+    tkdn3.addEventListener('wheel', movetkdn3)
+}
 
 window.addEventListener('load', ()=>{
     ShipMovement();
@@ -645,7 +688,6 @@ window.addEventListener('load', ()=>{
     RevealRoad();
     ScaleItem();
     AnimateSmoke();
-    //MoveBirds();
     setTimeout(()=>{
         let cover = document.querySelector('.cover-wrapper');
         let whiteOpaque = document.querySelector('.white-opaque');
@@ -666,7 +708,7 @@ window.addEventListener('load', ()=>{
             }
         fullpage_api.setAllowScrolling(true);
     },4500);
+    stopFullpage();
 
-    //scrollPageTwo()
-    
+    scrollModal();
 })
