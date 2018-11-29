@@ -98,7 +98,7 @@ let Fullpage = new fullpage('#fullpage', {
             setTimeout(()=>{
                 longRoadText.style.opacity = '1'
             },6000)
-            for(let i = 2; i<longRoadImg.length; i++){
+            for(let i = 2; i<longRoadImg.length-1; i++){
                 //console.log(i)
                 setTimeout(()=>{
                     longRoadImg[i].style.opacity = '1'
@@ -165,7 +165,7 @@ let Fullpage = new fullpage('#fullpage', {
             let longRoadImg = document.querySelectorAll('.long-road img');
             let longRoadText = document.querySelector('.long-road-text');
             longRoadText.style.opacity = '0'
-            for(let i = 2; i<longRoadImg.length; i++){
+            for(let i = 2; i<longRoadImg.length-1; i++){
                 longRoadImg[i].style.opacity = '0'
             }
         }
@@ -181,7 +181,7 @@ let Fullpage = new fullpage('#fullpage', {
                 bigTruck.style.transition = 'none'
                 bigTruck.style.left = '0'
                 longRoadText.style.opacity = '0'
-                for(let i = 2; i<longRoadImg.length; i++){
+                for(let i = 2; i<longRoadImg.length-1; i++){
                     longRoadImg[i].style.opacity = '0'
                 }
             },1000);
@@ -327,8 +327,8 @@ let Fullpage = new fullpage('#fullpage', {
             }, 2000);
 
             setTimeout(()=>{
-                oilImg[0].style.marginTop = '-5vh'
-                oilImg[2].style.marginTop = '3vh'
+                oilImg[0].style.marginTop = '-75%'
+                oilImg[2].style.marginTop = '100%'
                 fullpage_api.setAllowScrolling(true)
             }, 2500)
 
@@ -387,8 +387,8 @@ let Fullpage = new fullpage('#fullpage', {
             }, 2000);
 
             setTimeout(()=>{
-                oilImg5[0].style.marginTop = '-5vh'
-                oilImg5[2].style.marginTop = '3vh'
+                oilImg5[0].style.marginTop = '-75%'
+                oilImg5[2].style.marginTop = '100%'
                 fullpage_api.setAllowScrolling(true)
             }, 2500)
 
@@ -411,8 +411,8 @@ let Fullpage = new fullpage('#fullpage', {
             }, 2000);
 
             setTimeout(()=>{
-                oilImg[0].style.marginTop = '-5vh'
-                oilImg[2].style.marginTop = '3vh'
+                oilImg[0].style.marginTop = '-75%'
+                oilImg[2].style.marginTop = '100%'
                 fullpage_api.setAllowScrolling(true)
             }, 2500);
 
@@ -439,9 +439,10 @@ let Fullpage = new fullpage('#fullpage', {
         }
 
         if(origin.index == 6 && direction=='down'){
+            console.log('6down')
             let oilwraper5 = document.querySelector('.s5 .oil-wraper');
             let graphwraper5 = document.querySelector('.s5 .graph-wraper');
-            let oilImg5 = document.querySelectorAll('.s5 .oil-wraper img');
+            let oilImg5 = document.querySelectorAll('.s5arrow');
             let s5p = document.querySelector('.s5 p');
 
             setTimeout(()=>{
@@ -449,15 +450,8 @@ let Fullpage = new fullpage('#fullpage', {
                 oilwraper5.style.opacity = '0'
                 graphwraper5.style.opacity = '0'
                 oilImg5[0].style.marginTop = '0'
-                oilImg5[2].style.marginTop = '0'
+                oilImg5[1].style.marginTop = '0'
             }, 1000);
-
-            let s6p = document.querySelector('.s6 p');
-            let s6bawah = document.querySelector('#bawah6')
-            setTimeout(()=>{
-                s6p.style.opacity = '1'
-                s6bawah.style.opacity = '1'
-            }, 1100);
 
         }
 
@@ -477,16 +471,10 @@ let Fullpage = new fullpage('#fullpage', {
             }, 2000);
 
             setTimeout(()=>{
-                oilImg5[0].style.marginTop = '-32px'
-                oilImg5[2].style.marginTop = '72px'
+                oilImg5[0].style.marginTop = '-75%'
+                oilImg5[2].style.marginTop = '100%'
                 fullpage_api.setAllowScrolling(true)
             }, 2500);
-
-
-            let s6p = document.querySelector('.s6 p');
-            setTimeout(()=>{
-                s6p.style.opacity = '0'
-            }, 1000);
         }
         
     }

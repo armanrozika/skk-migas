@@ -509,7 +509,7 @@ body{
     .scene1{
         width: 100%;
         height: 100%;
-        background: #D6E9C5;
+        background: #E3EAB0;
         left: 0;
         top: 100%;
         overflow: hidden;
@@ -571,18 +571,21 @@ body{
             opacity: 0;
             transition: opacity 1000ms ease;
             img{
-                width: 100%;
                 height: auto;
                 position: absolute;
                 transition: opacity 1s ease;
-                top: 50%;
-                transform: translateY(-50%);
+                z-index: 2;
                 @include if-768{
                     width: 400%;
                 }
+                &:nth-child(1){
+                    width: 100%;
+                    transform: translateY(-50%);
+                    top: 50%;
+                }
                 &:nth-child(2){
                     width: 18%;
-                    top: 44%;
+                    bottom: 50%;
                     left: 0;
                     transition: left 7s ease;
                     @include if-768{
@@ -592,7 +595,7 @@ body{
                 }
                 &:nth-child(3){
                     width: 13%;
-                    top: 22%;
+                    top: 20%;
                     left: 24%;
                     opacity: 0;
                     @include if-768{
@@ -602,7 +605,7 @@ body{
                 }
                 &:nth-child(4){
                     width: 4%;
-                    top: 23%;
+                    top: 21%;
                     left: 39%;
                     opacity: 0;
                     @include if-768{
@@ -612,7 +615,7 @@ body{
                 }
                 &:nth-child(5){
                     width: 17%;
-                    top: 23%;
+                    top: 21%;
                     left: 45%;
                     opacity: 0;
                     @include if-768{
@@ -623,7 +626,7 @@ body{
                 }
                 &:nth-child(6){
                     width: 17%;
-                    top: 66%;
+                    top: 63%;
                     left: 50%;
                     opacity: 0;
                     @include if-768{
@@ -641,6 +644,13 @@ body{
                         top: 65%;
                         left: 72%;
                     }
+                }
+                &:nth-child(8){
+                    width: 49%;
+                    z-index: 1;
+                    bottom: 50%;
+                    left: 50%;
+                    transform: translateX(-50%);
                 }
             }
             .long-road-text{
@@ -660,21 +670,24 @@ body{
         width: 100%;
         height: 100%;
         font-size: 18px;
-        background: #D6E9C5;
+        background: #E3EAB0;
         font-family: 'Roboto Condensed', sans-serif;
         img{
-            width: 100%;
             height: auto;
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
             transition: all 500ms ease;
+            z-index: 2;
             @include if-768{
                 width: 400%;
             }
+            &:nth-child(1){
+                width: 100%;
+                top: 50%;
+                transform: translateY(-50%);
+            }
             &:nth-child(2){
                 width: 30%;
-                top: 43%;
+                bottom: 50%;
                 left: 15%;
                 opacity: 0;
                 @include if-768{
@@ -685,7 +698,7 @@ body{
             }
             &:nth-child(3){
                 width: 1%;
-                top: 27%;
+                bottom: 62%;
                 left: 45%;
                 opacity: 0;
                 @include if-768{
@@ -695,7 +708,7 @@ body{
             }
             &:nth-child(4){
                 width:17%;
-                top: 37%;
+                bottom: 53%;
                 left: 60%;
                 opacity: 0;
                 @include if-768{
@@ -704,12 +717,20 @@ body{
                     left: 64%;
                 }
             }
+            &:nth-child(5){
+                width: 49%;
+                z-index: 1;
+                bottom: 50%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
         .text-top{
             position: absolute;
             width: 100%;
             text-align: center;
             top: 60px;
+            z-index: 2;
             @include if-768{
                 padding: 0 15px;
             }
@@ -779,29 +800,38 @@ body{
         
     }
     .scene4{
-        background: #D6E9C5;
+        background: #E3EAB0;
         top: 100%;
+        .s4blur{
+            position: absolute;
+            height: 85%;
+            width: auto;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+        }
     }
     .scene6{
-        background: #FFF3CA;
+        background: #E5E1D6;
+        //height: 100vh;
     }
 
     .s4{
         width: 1100px;
-        height: 100%;
+        //height: 100%;
         font-family: 'Roboto Condensed', sans-serif;
         font-size: 18px;
         margin: 0 auto;
-        margin-top: 20vh;
+        //margin-top: 20vh;
         @include if-768{
             width: 100%;
         }
-        &>img{
+        .s4title{
             width: 40%;
             position: relative;
             left: 50%;
             transform: translateX(-50%);
-            margin-top: 30px;
+            //margin-top: 30px;
             @include if-768{
                 width: 90%;
                 margin-top: 10px;
@@ -812,6 +842,7 @@ body{
             margin-top: 25px;
             opacity: 0;
             transition: all 1s ease;
+            position: relative;
             @include if-768{
                 margin-top: 15px;
             }
@@ -821,13 +852,14 @@ body{
             display: grid;
             grid-template-columns: 1fr 1fr;
             margin-top: 5vh;
+            position: relative;
             .oil-wraper{
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr;
                 width: 56%;
                 grid-gap: 15px;
                 margin-top: 10vh;
-                margin-left: 15%;
+                margin-left: 30%;
                 opacity: 0;
                 transition: all 1s ease;
                 @include if-768{
@@ -849,7 +881,13 @@ body{
                 .graph-thumb{
                     font-size: 12px;
                     font-style: italic;
-                    color: #fff;
+                    color: #000;
+                    text-align: center;
+                    margin-top: 15px;
+                    width: 80%;
+                    p{
+                        margin-bottom: 5px;
+                    }
                 }
             }
         }
@@ -857,54 +895,58 @@ body{
 
     .s5{
         @extend .s4;
-        margin-top: 30vh;
+        //margin-top: 12%;
         &>p{
             margin-top: 0;
-           
         }
     }
     
     .s6{
-        @extend .s4;
-        margin-top: 30vh;
+        width: 1100px;
+        //height: 100%;
+        font-family: 'Roboto Condensed', sans-serif;
+        font-size: 18px;
+        margin: 0 auto;
+        //margin-top: 15vh;
         @include if-768{
             margin-top: 5vh;
             font-size: 16px;
         }
-        .s6-grid{
-            width: 40%;
+        p{
+            opacity: 1;
+            width: 73%;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            margin-top: 7vh;
             text-align: center;
-            img{
-                width: 80%;
-                margin: 0 auto;
-                &:nth-child(3){
-                    width: 54%;
-                }
-                &:nth-child(5){
-                    width: 40%;
-                }
+            margin-bottom: 30px;
+            &:nth-child(2){
+                width: 66%;
             }
-
-            .jumlah{
-                img{
-                    width: 20%;
+        }
+        .graph-container{
+            width: 50%;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            img{
+                position: relative;
+                width: 100%;
+                &:nth-child(2){
+                    position: absolute;
+                    top: 0;
                 }
             }
         }
+        
     }
 
-    .s7{
+    .s0{
         width: 1100px;
-        height: 100%;
+        //height: 100%;
         margin: 0 auto;
         text-align: center;
         font-size: 18px;
         font-family: 'Roboto Condensed', sans-serif;
-        margin-top: 15vh;
+        //margin-top: 15vh;
         @include if-768{
            width: 100%;
            font-size: 16px;
@@ -921,12 +963,12 @@ body{
         }
     }
 
-    .s8{
+    .s7{
         @include if-768{
             width: 100%;
             font-size: 16px;
          }
-        @extend .s7;
+        @extend .s0;
         .btn-grid{
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
