@@ -894,6 +894,101 @@ body{
                         cursor: pointer;
                     }
                 }
+                .dbh-scroller{
+                    position: absolute;
+                    right: 5px;
+                    top: 5px;
+                    width: 5px;
+                    height: 30%;
+                    border-radius: 25px;
+                    background: #757575;
+                }
+                .dbh{
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    transition: all 1s ease;
+                    background: #F0EFEF;
+                    .map-bg{
+                        position: absolute;
+                        height: 100%;
+                        width: auto;
+                        right: 0;
+                        bottom: 0;
+                        z-index: 0;
+                    }
+                    h1{
+                        width: 150px;
+                        margin: 0 auto;
+                        background: #52BC80;
+                    }
+                    .dbh-item{
+                        width: 70%;
+                        position: absolute;
+                        top: 50%;
+                        left:  50%;
+                        text-align: center;
+                        transform: translate(-50%, -50%);
+                        p{
+                            text-align: center;
+                        }
+                        img{
+                            width: 23%;
+                            margin: 50px 0;
+                        }
+                        h2{
+                            margin-bottom: 10px;
+                        }
+                        li{
+                            list-style: disc;
+                            text-align: left;
+                            margin-bottom: 5px;
+                        }
+                    }
+                    .dbh-item-full{
+                        width: 100%;
+                        height: 100%;
+                        .oil{
+                            width: 10%;
+                            position: absolute;
+                            left: 15px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+                        .oilpanah{
+                            position: absolute;
+                            width: 5%;
+                            top: 47%;
+                            left: 8%;
+                            transform: translateY(-50%)
+                        }
+                    }
+                }
+
+                .dbh1{
+                    top: 0;
+                    left: 0;
+                }
+                .dbh2{
+                    top:100%;
+                    .rincian{
+                        width: 33%;
+                        height: auto;
+                        position: absolute;
+                        top: 10%;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                    .tangan-text{
+                        width:14%;
+                        height: auto;
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        top: 13%;
+                    }
+                }
+
                 .scroller-wrap{
                     position: absolute;
                     width: 100%;
@@ -916,9 +1011,27 @@ body{
                 }
             }
             .perbankan{
-                left: 0;
+                left: 0 !important;
+                h1{
+                    width: 220px;
+                    background: #EC6326;
+                }
+                .bank-item{
+                    img{
+                        width: 35%;
+                        margin-bottom: 20px;
+                    }
+                    
+                }
                 .txt2{
                     top: 50%;
+                    .bank-source{
+                        font-size: 12px;
+                        font-weight: bold;
+                    }
+                    span{
+                        font-size: 20px; font-weight: bold
+                    }
                 }
                 .close-tkdn{
                     position: absolute;
@@ -927,6 +1040,14 @@ body{
                     right: 0;
                     top: 0;
                     cursor: pointer;
+                }
+                .investasip{
+                    background: #CC4E27;
+                    padding: 10px 0;
+                    border-radius: 25px;
+                    color: #fff;
+                    background: #CC4E27;
+                    margin-bottom: 50px !important;
                 }
             }
         }
@@ -1002,11 +1123,8 @@ body{
                            visibility: hidden;
                         }
                         &:hover{
-                            h1{
-                                opacity: 1;
-                            }
                             box-shadow: -2px 1px 18px #4d4b4b;
-                            background-image: linear-gradient(to bottom left, #8A9332, #D2E04F);
+                           
                         }
                         .click-small{
                             font-size: 12px;

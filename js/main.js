@@ -611,24 +611,21 @@ function stopFullpage(){
     let h1 = document.querySelectorAll('.click h1')
     let check = document.querySelectorAll('.check');
     let modal = document.querySelectorAll('.modals');
-    let close = document.querySelector('.close-tkdn')
-    close.addEventListener('click', ()=>{
-        modal[0].style.visibility = 'hidden'
-        modal[0].style.opacity = '0'
-        console.log('click')
-        console.log(modal[2])
-    })
+    let close = document.querySelectorAll('.close-tkdn')
+    // close.addEventListener('click', ()=>{
+    //     modal[0].style.visibility = 'hidden'
+    //     modal[0].style.opacity = '0'
+    //     console.log('click')
+    //     console.log(modal[2])
+    // });
+    for(let i=0; i<close.length; i++){
+        close[i].addEventListener('click', ()=>{
+            modal[i].style.visibility = 'hidden'
+            modal[i].style.opacity = '0'
+        })
+    }
+  
     for(let i=0; i<click.length; i++){
-        click[i].addEventListener('click',()=>{
-            fullpage_api.setAllowScrolling(false);
-            h1[i].style.opacity = '0.4'
-            check[i].style.visibility = 'visible';
-            click[i].style.backgroundImage = 'linear-gradient(to bottom left, #750a0c, #f11f1f)'
-            console.log(modal[i])
-            modal[i].style.visibility = 'visible';
-            modal[i].style.opacity = '1';
-        });
-
         modal[i].addEventListener('click', (e)=>{
             if(e.target == modal[i]){
                 modal[i].style.visibility = 'hidden';
@@ -636,21 +633,80 @@ function stopFullpage(){
             }
         })
     }
+    click[0].style.backgroundImage ='linear-gradient(to bottom left, #8A9332, #D2E04F)'
+    h1[0].style.opacity = '1'
+    click[0].addEventListener('click',()=>{
+        fullpage_api.setAllowScrolling(false);
+        h1[0].style.opacity = '0.4'
+        h1[1].style.opacity = '1'
+        check[0].style.visibility = 'visible';
+        click[0].style.backgroundImage = 'linear-gradient(to bottom left, #750a0c, #f11f1f)'
+        click[1].style.backgroundImage = 'linear-gradient(to bottom left, #8A9332, #D2E04F)'
+        modal[0].style.visibility = 'visible';
+        modal[0].style.opacity = '1';
+        click[1].addEventListener('click',()=>{
+            h1[1].style.opacity = '0.4'
+            h1[2].style.opacity = '1'
+            check[1].style.visibility = 'visible';
+            click[1].style.backgroundImage = 'linear-gradient(to bottom left, #750a0c, #f11f1f)'
+            click[2].style.backgroundImage = 'linear-gradient(to bottom left,#8A9332, #D2E04F)'
+            modal[1].style.visibility = 'visible';
+            modal[1].style.opacity = '1';
+            click[2].addEventListener('click',()=>{
+                h1[2].style.opacity = '0.4'
+                h1[3].style.opacity = '1'
+                check[2].style.visibility = 'visible';
+                click[2].style.backgroundImage = 'linear-gradient(to bottom left, #750a0c, #f11f1f)'
+                click[3].style.backgroundImage = 'linear-gradient(to bottom left,#8A9332, #D2E04F)'
+                modal[2].style.visibility = 'visible';
+                modal[2].style.opacity = '1';
+                click[3].addEventListener('click',()=>{
+                    h1[3].style.opacity = '0.4'
+                    h1[4].style.opacity = '1'
+                    check[3].style.visibility = 'visible';
+                    click[3].style.backgroundImage = 'linear-gradient(to bottom left, #750a0c, #f11f1f)'
+                    click[4].style.backgroundImage = 'linear-gradient(to bottom left,#8A9332, #D2E04F)'
+                    modal[3].style.visibility = 'visible';
+                    modal[3].style.opacity = '1';
+                    click[4].addEventListener('click',()=>{
+                        h1[4].style.opacity = '0.4'
+                        h1[5].style.opacity = '1'
+                        check[4].style.visibility = 'visible';
+                        click[4].style.backgroundImage = 'linear-gradient(to bottom left, #750a0c, #f11f1f)'
+                        click[5].style.backgroundImage = 'linear-gradient(to bottom left,#8A9332, #D2E04F)'
+                        modal[4].style.visibility = 'visible';
+                        modal[4].style.opacity = '1';
+                        click[5].addEventListener('click',()=>{
+                            h1[5].style.opacity = '0.4'
+                            check[5].style.visibility = 'visible';
+                            click[5].style.backgroundImage = 'linear-gradient(to bottom left, #750a0c, #f11f1f)'
+                            modal[5].style.visibility = 'visible';
+                            modal[5].style.opacity = '1';
+                        });
+                    });
+                });
+            });
+        });
+    });
+
+  
+   
 }
 
 
 function scrollModal(){
-    let tkdn1 = document.querySelector('.tkdn1');
-    let tkdn2 = document.querySelector('.tkdn2');
+    //TKDN
+    let tkdn1 = document.querySelector('.dnscroll1');
+    let tkdn2 = document.querySelector('.dnscroll2');
     let scroll = document.querySelector('.scroller');
-    let tkdn3 = document.querySelector('.tkdn3');
+    let tkdn3 = document.querySelector('.dnscroll3');
     
     function movetkdn1(e){
         if(e.deltaY>0){
             console.log('down');
             tkdn1.style.left = '-100%'
             tkdn2.style.left = '0' 
-            scroll.style.left = '30%'
+            scroll.style.left = '33%'
         }else{
 
         }
@@ -660,7 +716,7 @@ function scrollModal(){
             console.log('down');
             tkdn2.style.left = '-100%'
             tkdn3.style.left = '0' 
-            scroll.style.left = '60%'
+            scroll.style.left = '67%'
         }else{
             tkdn1.style.left = '0'
             tkdn2.style.left = '100%' 
@@ -673,13 +729,26 @@ function scrollModal(){
         }else{
             tkdn2.style.left = '0' 
             tkdn3.style.left = '100%' 
-            scroll.style.left = '30%'
+            scroll.style.left = '33%'
         }
     }
     
     tkdn1.addEventListener('wheel', movetkdn1)
     tkdn2.addEventListener('wheel', movetkdn2)
     tkdn3.addEventListener('wheel', movetkdn3)
+
+
+    //DBH
+    let dbh1 = document.querySelector('.dbh1')
+    let dbh2 = document.querySelector('.dbh2')
+
+    dbh1.addEventListener('wheel', (e)=>{
+        if(e.deltaY>0){
+            dbh1.style.top = '-100%'
+            dbh2.style.top = '0'
+        }
+    })
+    
 }
 
 window.addEventListener('load', ()=>{
