@@ -363,7 +363,7 @@ let Fullpage = new fullpage('#fullpage', {
             }, 1000);
             let oilwraper = document.querySelector('.oil-wraper');
             let graphwraper = document.querySelector('.graph-wraper');
-            let oilImg = document.querySelectorAll('.oil-wraper img');
+            let oilImg = document.querySelectorAll('.s4 .oil-wraper img');
             let s4p = document.querySelector('.s4 p')
             setTimeout(()=>{
                 s4p.style.opacity = '0'
@@ -375,9 +375,10 @@ let Fullpage = new fullpage('#fullpage', {
         }
 
         if(origin.index == 5 && direction == 'down'){
+            console.log('5down')
             let oilwraper = document.querySelector('.oil-wraper');
             let graphwraper = document.querySelector('.graph-wraper');
-            let oilImg = document.querySelectorAll('.oil-wraper img');
+            let oilImg = document.querySelectorAll('.s4 .oil-wraper img');
             let s4p = document.querySelector('.s4 p')
             setTimeout(()=>{
                 s4p.style.opacity = '0'
@@ -403,8 +404,8 @@ let Fullpage = new fullpage('#fullpage', {
             }, 2000);
 
             setTimeout(()=>{
-                oilImg5[0].style.marginTop = '-75%'
-                oilImg5[2].style.marginTop = '100%'
+                //oilImg5[0].style.marginTop = '-75%'
+                oilImg5[1].style.marginTop = '100%'
                 fullpage_api.setAllowScrolling(true)
             }, 2500)
 
@@ -448,13 +449,14 @@ let Fullpage = new fullpage('#fullpage', {
             }, 2000);
 
             setTimeout(()=>{
-                oilImg5[0].style.marginTop = '0'
-                oilImg5[2].style.marginTop = '0'
+                //oilImg5[0].style.marginTop = '0'
+                oilImg5[1].style.marginTop = '0'
                 fullpage_api.setAllowScrolling(true)
             }, 2500)
         }
 
         if(origin.index == 6 && direction=='down'){
+           
             console.log('6down')
             let oilwraper5 = document.querySelector('.s5 .oil-wraper');
             let graphwraper5 = document.querySelector('.s5 .graph-wraper');
@@ -465,8 +467,8 @@ let Fullpage = new fullpage('#fullpage', {
                 s5p.style.opacity = '0'
                 oilwraper5.style.opacity = '0'
                 graphwraper5.style.opacity = '0'
+                //oilImg5[0].style.marginTop = '0'
                 oilImg5[0].style.marginTop = '0'
-                oilImg5[1].style.marginTop = '0'
             }, 1000);
 
         }
@@ -493,12 +495,13 @@ let Fullpage = new fullpage('#fullpage', {
             }, 2000);
 
             setTimeout(()=>{
-                oilImg5[0].style.marginTop = '-75%'
-                oilImg5[2].style.marginTop = '100%'
+                //oilImg5[0].style.marginTop = '-75%'
+                oilImg5[1].style.marginTop = '100%'
                 fullpage_api.setAllowScrolling(true)
             }, 2500);
         }
         if(origin.index == 7 && direction == 'down'){
+            fullpage_api.setAllowScrolling(false)
             let scene4 = document.querySelector('.scene4');
             let scene6 = document.querySelector('.scene6');
             console.log('7down')
@@ -685,27 +688,37 @@ function stopFullpage(){
     //     console.log('click')
     //     console.log(modal[2])
     // });
+    let panah = document.querySelector('.panah')
+    close[5].addEventListener('click', ()=>{
+        fullpage_api.setAllowScrolling(true);
+        fullpage_api.setKeyboardScrolling(true);
+        panah.style.display = 'block'
+    })
     for(let i=0; i<close.length; i++){
         close[i].addEventListener('click', ()=>{
             modal[i].style.transform = 'scale(0)';
             modal[i].style.opacity = '0';
-            fullpage_api.setAllowScrolling(true);
+           // 
         })
     }
   
-    // for(let i=0; i<click.length; i++){
-    //     modal[i].addEventListener('click', (e)=>{
-    //         if(e.target == modal[i]){
-    //             modal[i].style.transform = 'scale(0)';
-    //             modal[i].style.opacity = '0';
-    //             fullpage_api.setAllowScrolling(true);
-    //         }
-    //     })
-    // }
+    
     click[0].style.backgroundImage ='linear-gradient(to bottom left, #8A9332, #D2E04F)'
-    h1[0].style.opacity = '1'
+    h1[0].style.opacity = '1';
+
+    let boold = true;
+    let clickoneint = setInterval(()=>{
+        boold = boold ? false: true;
+        if(boold){
+            click[0].style.boxShadow = '-2px 1px 18px #4d4b4b'
+        }else{
+            click[0].style.boxShadow = 'none'
+        }
+        
+    }, 500)
     click[0].addEventListener('click',()=>{
         fullpage_api.setAllowScrolling(false);
+        fullpage_api.setKeyboardScrolling(false);
         h1[0].style.opacity = '0.4'
         h1[1].style.opacity = '1'
         check[0].style.visibility = 'visible';
@@ -713,8 +726,20 @@ function stopFullpage(){
         click[1].style.backgroundImage = 'linear-gradient(to bottom left, #8A9332, #D2E04F)'
         modal[0].style.transform = 'scale(1)';
         modal[0].style.opacity = '1';
+        let boold = true;
+        clearInterval(clickoneint)
+        let clicktwoint = setInterval(()=>{
+            boold = boold ? false: true;
+            if(boold){
+                click[1].style.boxShadow = '-2px 1px 18px #4d4b4b'
+            }else{
+                click[1].style.boxShadow = 'none'
+            }
+        
+        }, 500)
         click[1].addEventListener('click',()=>{
             fullpage_api.setAllowScrolling(false);
+            fullpage_api.setKeyboardScrolling(false);
             h1[1].style.opacity = '0.4'
             h1[2].style.opacity = '1'
             check[1].style.visibility = 'visible';
@@ -722,8 +747,20 @@ function stopFullpage(){
             click[2].style.backgroundImage = 'linear-gradient(to bottom left,#8A9332, #D2E04F)'
             modal[1].style.transform = 'scale(1)';
             modal[1].style.opacity = '1';
+            let boold = true;
+            clearInterval(clicktwoint)
+            let clickthreeint = setInterval(()=>{
+                boold = boold ? false: true;
+                if(boold){
+                    click[2].style.boxShadow = '-2px 1px 18px #4d4b4b'
+                }else{
+                    click[2].style.boxShadow = 'none'
+                }
+            
+            }, 500)
             click[2].addEventListener('click',()=>{
                 fullpage_api.setAllowScrolling(false);
+                fullpage_api.setKeyboardScrolling(false);
                 h1[2].style.opacity = '0.4'
                 h1[3].style.opacity = '1'
                 check[2].style.visibility = 'visible';
@@ -731,8 +768,20 @@ function stopFullpage(){
                 click[3].style.backgroundImage = 'linear-gradient(to bottom left,#8A9332, #D2E04F)'
                 modal[2].style.transform = 'scale(1)';
                 modal[2].style.opacity = '1';
+                let boold = true;
+                clearInterval(clickthreeint)
+                let clickfourint = setInterval(()=>{
+                    boold = boold ? false: true;
+                    if(boold){
+                        click[3].style.boxShadow = '-2px 1px 18px #4d4b4b'
+                    }else{
+                        click[3].style.boxShadow = 'none'
+                    }
+                
+                }, 500)
                 click[3].addEventListener('click',()=>{
                     fullpage_api.setAllowScrolling(false);
+                    fullpage_api.setKeyboardScrolling(false);
                     h1[3].style.opacity = '0.4'
                     h1[4].style.opacity = '1'
                     check[3].style.visibility = 'visible';
@@ -740,8 +789,19 @@ function stopFullpage(){
                     click[4].style.backgroundImage = 'linear-gradient(to bottom left,#8A9332, #D2E04F)'
                     modal[3].style.transform = 'scale(1)';
                     modal[3].style.opacity = '1';
+                    clearInterval(clickfourint)
+                    let clickfiveint = setInterval(()=>{
+                        boold = boold ? false: true;
+                        if(boold){
+                            click[4].style.boxShadow = '-2px 1px 18px #4d4b4b'
+                        }else{
+                            click[4].style.boxShadow = 'none'
+                        }
+                    
+                    }, 500)
                     click[4].addEventListener('click',()=>{
                         fullpage_api.setAllowScrolling(false);
+                        fullpage_api.setKeyboardScrolling(false);
                         h1[4].style.opacity = '0.4'
                         h1[5].style.opacity = '1'
                         check[4].style.visibility = 'visible';
@@ -749,13 +809,25 @@ function stopFullpage(){
                         click[5].style.backgroundImage = 'linear-gradient(to bottom left,#8A9332, #D2E04F)'
                         modal[4].style.transform = 'scale(1)';
                         modal[4].style.opacity = '1';
+                        clearInterval(clickfiveint)
+                        let clicksixint = setInterval(()=>{
+                            boold = boold ? false: true;
+                            if(boold){
+                                click[5].style.boxShadow = '-2px 1px 18px #4d4b4b'
+                            }else{
+                                click[5].style.boxShadow = 'none'
+                            }
+                        
+                        }, 500)
                         click[5].addEventListener('click',()=>{
                             fullpage_api.setAllowScrolling(false);
+                            fullpage_api.setKeyboardScrolling(false);``
                             h1[5].style.opacity = '0.4'
                             check[5].style.visibility = 'visible';
                             click[5].style.backgroundImage = 'linear-gradient(to bottom left, #750a0c, #f11f1f)'
                             modal[5].style.transform = 'scale(1)';
                             modal[5].style.opacity = '1';
+                            clearInterval(clicksixint)
                         });
                     });
                 });
@@ -794,6 +866,46 @@ function scrollModal(){
             //
         }
     }, false);
+    let prev = document.querySelector('#prev')
+    let next = document.querySelector('#next')
+
+    let initState = 0;
+
+    prev.addEventListener('click', ()=>{
+        initState--;
+        if(initState <=0){
+            initState = 0;
+        }
+        if(initState==1){
+            tkdn2.style.left = '0' 
+            tkdn3.style.left = '100%' 
+            scroll.style.left = '33%'
+        }
+        if(initState==0){
+            tkdn1.style.left = '0'
+            tkdn2.style.left = '100%' 
+            scroll.style.left = '5px'
+        }
+       
+    });
+
+    next.addEventListener('click', ()=>{
+        initState++;
+        if(initState==1){
+            tkdn1.style.left = '-100%'
+            tkdn2.style.left = '0' 
+            scroll.style.left = '33%'
+        }
+        if(initState==2){
+            tkdn2.style.left = '-100%'
+            tkdn3.style.left = '0' 
+            scroll.style.left = '67%'
+        }
+        if(initState>=2){
+            initState =2;
+        }
+        
+    })
     
     function movetkdn1(e){
         if(e.deltaY>0){
@@ -877,6 +989,87 @@ function scrollModal(){
    let dbhEnam = document.querySelector('.dbhEnam')
    let dbhTujuh = document.querySelector('.dbhTujuh')
    let dbhScroller = document.querySelector('.dbh-scroller')
+
+   let dbhPrev = document.querySelector('.prev')
+   let dbhNext = document.querySelector('.next')
+
+   let initdbh = 0;
+   dbhPrev.addEventListener('click', ()=>{
+        initdbh--;
+        console.log(initdbh)
+        if(initdbh<=0){
+            initdbh = 0;
+        }
+        if(initdbh==5){
+            dbhScroller.style.top = '75%'
+            dbhTujuh.style.top = '100%'
+            dbhEnam.style.top = '0';
+        }
+        if(initdbh==4){
+            dbhScroller.style.top = '60%'
+            dbhEnam.style.top = '100%';
+            dbhLima.style.top = '0'
+        }
+        if(initdbh==3){
+            dbhScroller.style.top = '45%'
+            dbhLima.style.top = '100%'
+            dbhEmpat.style.top = '0'
+        }
+        if(initdbh == 2){
+            dbhTiga.style.top = '0'
+            dbhEmpat.style.top = '100%'
+            dbhScroller.style.top = '30%'
+        }
+        if(initdbh==1){
+            dbhTiga.style.top = '100%'
+            dbhDua.style.top = '0'
+            dbhScroller.style.top = '15%'
+        }
+        if(initdbh==0){
+            dbhSatu.style.top = '-0'
+            dbhDua.style.top = '100%'
+            dbhScroller.style.top = '5px'
+        }
+        
+   });
+
+   dbhNext.addEventListener('click', ()=>{
+        initdbh++;
+
+        if(initdbh==1){
+            dbhSatu.style.top = '-100%'
+            dbhDua.style.top = '0'
+            dbhScroller.style.top = '15%'
+        }
+        if(initdbh==2){
+            dbhDua.style.top = '-100%'
+            dbhTiga.style.top = '0'
+            dbhScroller.style.top = '30%'
+        }
+        if(initdbh==3){
+            dbhEmpat.style.top = '0'
+            dbhTiga.style.top = '-100%'
+            dbhScroller.style.top = '45%'
+        }
+        if(initdbh==4){
+            dbhEmpat.style.top = '-100%'
+            dbhLima.style.top = '0'
+            dbhScroller.style.top = '60%'
+        }
+        if(initdbh==5){
+            dbhLima.style.top = '-100%'
+            dbhEnam.style.top = '0';
+            dbhScroller.style.top = '75%'
+        }
+        if(initdbh==6){
+            dbhScroller.style.top = '80%'
+            dbhEnam.style.top = '-100%';
+            dbhTujuh.style.top = '0'
+        }
+        if(initdbh>=6){
+            initdbh==6;
+        }
+   })
     
     dbhSatu.addEventListener('wheel', (e)=>{
         if(e.deltaY>0){
@@ -1101,14 +1294,45 @@ function scrollModal(){
     let bumd1 = document.querySelector('.bumd1');
     let bumd2 = document.querySelector('.bumd2');
     let bumdScroller = document.querySelector('.bumd-scroller')
+    let prevbumd = document.querySelector('.prevbumd')
+    let nextbumd = document.querySelector('.nextbumd')
+    let initbumd = 0;
 
+    prevbumd.addEventListener('click', ()=>{
+        initbumd--;
+        console.log(initbumd)
+        if(initbumd<=0){
+            bumd1.style.top = '0'
+            bumd2.style.top = '100%'
+            bumdScroller.style.top = '5px'
+            initbumd=0;
+        }
+        if(initbumd==1){
+            // bumd1.style.top = '0'
+            // bumd2.style.top = '100%'
+            // bumdScroller.style.top = '5px'
+        }
+    });
+
+    nextbumd.addEventListener('click', ()=>{
+        initbumd++;
+        if(initbumd==1){
+            bumd1.style.top = '-100%'
+            bumd2.style.top = '0'
+            bumdScroller.style.top = '50%'
+        }
+        if(initbumd>=1){
+            initbumd=1;
+        }
+    })
     bumd1.addEventListener('wheel', (e)=>{
         if(e.deltaY>0){
             bumd1.style.top = '-100%'
             bumd2.style.top = '0'
             bumdScroller.style.top = '50%'
         }
-    })
+    });
+
 
     bumd1.addEventListener('touchstart', function(event) {
         touchstartY = event.changedTouches[0].screenY;
@@ -1168,6 +1392,59 @@ function scrollModal(){
     let pinggiran5 = document.querySelector('.pinggiran5')
     let pinggirScroll = document.querySelector('.pinggiran-scroller')
 
+    let nextpinggiran = document.querySelector('.nextpinggiran');
+    let prevpinggiran = document.querySelector('.prevpinggiran')
+    let initpinggiran = 0;
+
+    prevpinggiran.addEventListener('click', ()=>{
+        initpinggiran--;
+        if(initpinggiran==3){
+            pinggirScroll.style.top = '60%'
+            pinggiran5.style.top = '100%'
+            pinggiran4.style.top = '0';
+        }
+        if(initpinggiran==2){
+            pinggiran4.style.top = '100%';
+            pinggiran3.style.top = '0';
+            pinggirScroll.style.top = '40%'
+        }
+        if(initpinggiran==1){
+            pinggiran2.style.top = '0'
+            pinggiran3.style.top = '100%';
+            pinggirScroll.style.top = '20%'
+        }
+        if(initpinggiran<=0){
+            pinggiran1.style.top = '0'
+            pinggiran2.style.top = '100%'
+            pinggirScroll.style.top = '5px'
+            initpinggiran = 0;
+        }
+    });
+
+    nextpinggiran.addEventListener('click', ()=>{
+        initpinggiran++;
+        if(initpinggiran==1){
+            pinggiran1.style.top = '-100%';
+            pinggiran2.style.top = '0'
+            pinggirScroll.style.top = '20%'
+        }
+        if(initpinggiran==2){
+            pinggiran3.style.top = '0';
+            pinggiran2.style.top = '-100%'
+            pinggirScroll.style.top = '40%'
+        }
+        if(initpinggiran==3){
+            pinggiran4.style.top = '0'
+            pinggiran3.style.top = '-100%';
+            pinggirScroll.style.top = '60%'
+        }
+        if(initpinggiran>=4){
+            pinggiran5.style.top = '0'
+            pinggiran4.style.top = '-100%';
+            pinggirScroll.style.top = '80%'
+            initpinggiran = 4;
+        }
+    })
 
     pinggiran1.addEventListener('wheel', (e)=>{
         if(e.deltaY>0){
@@ -1319,8 +1596,8 @@ function scrollModal(){
 let laut = document.querySelector('#laut');
 let roadMobile = document.querySelector('#roadmobile')
 if(screen.width<768){
-    laut.src = '../img/scene_1/laut_mobile.png'
-    roadMobile.src = '../img/road_mobile.png'
+    laut.src = './img/scene_1/laut_mobile.png'
+    roadMobile.src = './img/road_mobile.png'
 }
 
 let preloadContent = document.querySelector('.preload-content img')
@@ -1332,15 +1609,24 @@ let loader = setInterval(()=>{
     }else{
         preloadContent.style.opacity = '0'
     }
-}, 400)
+}, 400);
+
+
+let panah = document.querySelector('.panah');
+let bools = true;
+setInterval(()=>{
+    bools = bools ? false: true;
+    if(bools){
+        panah.style.bottom = '10px'
+    }else{
+        panah.style.bottom = '7px'
+    }
+}, 500)
 
 window.addEventListener('load', ()=>{
-    setTimeout(()=>{
         let preloader = document.querySelector('.preloader');
         preloader.style.opacity = 0;
         clearInterval(loader)
-    },1000)
-   
     ShipMovement();
     Wave();
     RevealRoad();
